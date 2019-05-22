@@ -17,10 +17,10 @@ class CreateCommentsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->unsignedBigInteger('author');
-            $table->foreign('author')->references('id')->on('users')->onDelete('cascade');;
+            $table->foreign('author')->references('id')->on('users')->onDelete('cascade');
             $table->string('text');
             $table->unsignedBigInteger('id_ticket');
-            $table->foreign('id_ticket')->references('id')->on('tickets')->onDelete('cascade');;
+            $table->foreign('id_ticket')->references('id')->on('tickets')->onDelete('cascade');
         });
     }
 
