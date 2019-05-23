@@ -8,6 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use Laravel\Passport\HasApiTokens;
 
+use App\Ticket;
+use App\Comment;
+
 class User extends Authenticatable
 {
     use Notifiable, HasApiTokens;
@@ -38,4 +41,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function ownedTickets()
+    {
+        return $this->hasMany(Ticket::class, 'id_proprietaire'); 
+    }
+
+    public function assignedTickets()
+    {
+        return $this->hasMany(Ticket::class, 'id_assignation'); 
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'author'); 
+    }
 }

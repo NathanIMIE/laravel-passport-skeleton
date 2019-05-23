@@ -13,6 +13,6 @@ class TicketSeeder extends Seeder
      */
     public function run()
     {
-        factory(Ticket::class, 2)->create();
+        factory(Ticket::class, 10)->create();
     }
 }

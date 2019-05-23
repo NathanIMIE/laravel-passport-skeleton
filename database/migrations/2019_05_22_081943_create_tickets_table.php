@@ -24,7 +24,7 @@ class CreateTicketsTable extends Migration
             $table->string('state');
             $table->unsignedBigInteger('id_proprietaire');
             $table->foreign('id_proprietaire')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('id_assignation');
+            $table->unsignedBigInteger('id_assignation')->nullable();
             $table->foreign('id_assignation')->references('id')->on('users');
         });
     }
